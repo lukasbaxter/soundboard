@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Audio Panel</title>
+    <style>
+        .button-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            max-width: 300px;
+            margin: 20px auto;
+            text-align: center;
+        }
+
+        .button-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        button {
+            padding: 10px;
+            font-size: 14px;
+            cursor: pointer;
+            margin-bottom: 10px;
+        }
+
+        input[type="range"] {
+            width: 100px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1 style="text-align: center;">Audio Button Panel</h1>
+    <div class="button-grid">
+        <div class="button-container">
+            <button onclick="playAudio('sounds/audio1.mp3', 1)">Intro</button>
+            <input type="range" min="0" max="1" step="0.05" oninput="setVolume(1, this.value)" value="1">
+        </div>
+        <div class="button-container">
+            <button onclick="playAudio('sounds/audio2.mp3', 2)">Play 2</button>
+            <input type="range" min="0" max="1" step="0.05" oninput="setVolume(2, this.value)" value="1">
+        </div>
+        <div class="button-container">
+            <button onclick="playAudio('sounds/audio3.mp3', 3)">Play 3</button>
+            <input type="range" min="0" max="1" step="0.05" oninput="setVolume(3, this.value)" value="1">
+        </div>
+        <div class="button-container">
+            <button onclick="playAudio('sounds/audio4.mp3', 4)">Play 4</button>
+            <input type="range" min="0" max="1" step="0.05" oninput="setVolume(4, this.value)" value="1">
+        </div>
+        <div class="button-container">
+            <button onclick="playAudio('sounds/audio5.mp3', 5)">Play 5</button>
+            <input type="range" min="0" max="1" step="0.05" oninput="setVolume(5, this.value)" value="1">
+        </div>
+        <div class="button-container">
+            <button onclick="playAudio('sounds/audio6.mp3', 6)">Play 6</button>
+            <input type="range" min="0" max="1" step="0.05" oninput="setVolume(6, this.value)" value="1">
+        </div>
+        <div class="button-container">
+            <button onclick="playAudio('sounds/audio7.mp3', 7)">Play 7</button>
+            <input type="range" min="0" max="1" step="0.05" oninput="setVolume(7, this.value)" value="1">
+        </div>
+        <div class="button-container">
+            <button onclick="playAudio('sounds/audio8.mp3', 8)">Load Gun</button>
+            <input type="range" min="0" max="1" step="0.05" oninput="setVolume(8, this.value)" value="1">
+        </div>
+        <div class="button-container">
+            <button onclick="playAudio('sounds/audio9.mp3', 9)">Fire Gun</button>
+            <input type="range" min="0" max="1" step="0.05" oninput="setVolume(9, this.value)" value="1">
+        </div>
+    </div>
+
+    <audio id="audio-player-1"></audio>
+    <audio id="audio-player-2"></audio>
+    <audio id="audio-player-3"></audio>
+    <audio id="audio-player-4"></audio>
+    <audio id="audio-player-5"></audio>
+    <audio id="audio-player-6"></audio>
+    <audio id="audio-player-7"></audio>
+    <audio id="audio-player-8"></audio>
+    <audio id="audio-player-9"></audio>
+
+    <script>
+        function playAudio(src, playerId) {
+            const audio = document.getElementById(`audio-player-${playerId}`);
+            audio.src = src;
+            audio.play();
+        }
+
+        function setVolume(playerId, volume) {
+            const audio = document.getElementById(`audio-player-${playerId}`);
+            audio.volume = volume;
+        }
+    </script>
+</body>
+
+</html>
